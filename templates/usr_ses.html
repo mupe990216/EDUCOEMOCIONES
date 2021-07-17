@@ -1,0 +1,606 @@
+{% extends "bs_usr.html" %}
+
+<!-- Header -->
+{%block cabecera%}
+    <script type="text/javascript">
+        function saluda(){            
+            window.location.hash="retroceso-no-permitido";
+            window.location.hash="no-permitido";//esta linea es necesaria para chrome
+            window.onhashchange=function(){window.location.hash="retroceso-no-permitido";}
+        }
+    </script>    
+{%endblock%}
+<!-- Header -->
+
+<!-- Etiqueta Body -->
+{% block body %}
+    onload="saluda();" onpageshow="saluda();"
+{% endblock %}
+<!-- Etiqueta Body -->
+
+<!-- CONTENIDO -->
+{% block contenido %}    
+    <div>
+    <!-- <h2 style="text-align: center;">Modulo {{modulo}} sesión {{sesion}}</h2> -->
+
+
+    <!-- Como me siento -->
+    {% if modulo == 1 and sesion == 1 %}
+        <h3 style="text-align: center;">¿Qué sabes de las emociones?</h3>
+        <div class="row" style="background-color: rgba(250, 250, 200,0.5); margin:40px; padding: 10px;">            
+            <article class="col s12" style="margin-top: 15px;">
+                {% if submodulo == 1 %}
+                    <div class="full-width center-align" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="contenedor_slider">
+                            <div class="slider" id="slider" style="width: 300%;">
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S1/Alegria01.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S1/Alegria02.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S1/Alegria03.png')}}" class="slider_img">
+                                </div>                                
+                            </div>
+                            <div class="slider_btn slider_btn_right" id="btn_right" name="btn_right">&#62;</div>
+                            <!-- <div class="slider_btn slider_btn_left" id="btn_left" name="btn_left">&#60;</div> -->
+                        </div>
+                    </div><br>
+
+                    <div id="btnsiguiente" name="btnsiguiente" class="full-width center-align" style="display: none; justify-content: center; align-items: center;">
+                        <a href="/mod1/sesion1/subm1/test" class="btn-large indigo waves-effect efecto-pulse">Siguiente</a>
+                    </div>
+                {% endif %}
+
+                {% if submodulo == 2 %}
+                    <div class="full-width center-align" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="contenedor_slider">
+                            <div class="slider" id="slider" style="width: 300%;">                                
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S1/Enojo01.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S1/Enojo02.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S1/Enojo03.png')}}" class="slider_img">
+                                </div>                                
+                            </div>
+                            <div class="slider_btn slider_btn_right" id="btn_right" name="btn_right">&#62;</div>
+                            <!-- <div class="slider_btn slider_btn_left" id="btn_left" name="btn_left">&#60;</div> -->
+                        </div>
+                    </div><br>
+
+                    <div id="btnsiguiente" name="btnsiguiente" class="full-width center-align" style="display: none; justify-content: center; align-items: center;">
+                        <a href="/mod1/sesion1/subm2/test" class="btn-large indigo waves-effect efecto-pulse">Siguiente</a>
+                    </div>
+                {% endif %}
+
+                {% if submodulo == 3 %}
+                    <div class="full-width center-align" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="contenedor_slider">
+                            <div class="slider" id="slider" style="width: 300%;">                                
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S1/Miedo01.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S1/Miedo02.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S1/Miedo03.png')}}" class="slider_img">
+                                </div>
+                            </div>
+                            <div class="slider_btn slider_btn_right" id="btn_right" name="btn_right">&#62;</div>
+                            <!-- <div class="slider_btn slider_btn_left" id="btn_left" name="btn_left">&#60;</div> -->
+                        </div>
+                    </div><br>
+
+                    <div id="btnsiguiente" name="btnsiguiente" class="full-width center-align" style="display: none; justify-content: center; align-items: center;">
+                        <a href="/mod1/sesion1/subm3/test" class="btn-large indigo waves-effect efecto-pulse">Siguiente</a>
+                    </div>
+                {% endif %}
+
+                {% if submodulo == 4 %}
+                    <div class="full-width center-align" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="contenedor_slider">
+                            <div class="slider" id="slider" style="width: 300%;">                                
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S1/Tristeza01.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S1/Tristeza02.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S1/Tristeza03.png')}}" class="slider_img">
+                                </div>
+                            </div>
+                            <div class="slider_btn slider_btn_right" id="btn_right" name="btn_right">&#62;</div>
+                            <!-- <div class="slider_btn slider_btn_left" id="btn_left" name="btn_left">&#60;</div> -->
+                        </div>
+                    </div><br>
+
+                    <div id="btnsiguiente" name="btnsiguiente" class="full-width center-align" style="display: none; justify-content: center; align-items: center;">
+                        <a href="/mod1/sesion1/subm4/test" class="btn-large indigo waves-effect efecto-pulse">Siguiente</a>
+                    </div>
+                {% endif %}
+
+                {% if submodulo == 5 %}
+                    <div class="full-width center-align" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="contenedor_slider">
+                            <div class="slider" id="slider" style="width: 300%;">
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S1/Verguenza01.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S1/Verguenza02.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S1/Verguenza03.png')}}" class="slider_img">
+                                </div>
+                            </div>
+                            <div class="slider_btn slider_btn_right" id="btn_right" name="btn_right">&#62;</div>
+                            <!-- <div class="slider_btn slider_btn_left" id="btn_left" name="btn_left">&#60;</div> -->
+                        </div>
+                    </div><br>
+
+                    <div id="btnsiguiente" name="btnsiguiente" class="full-width center-align" style="display: none; justify-content: center; align-items: center;">
+                        <a href="/mod1/sesion1/subm5/test" class="btn-large indigo waves-effect efecto-pulse">Siguiente</a>
+                    </div>
+                {% endif %}
+
+                {% if submodulo > 5 %}
+                    <h1 style="text-align: center;">En construcción ...</h1>
+                {% endif %}
+            </article><br>
+        </div>
+        <script src="{{ url_for('static',filename='js/slider.js') }}"></script>
+    {% endif %}
+
+
+    <!-- Como manifiesto mi sentir -->
+    {% if modulo == 1 and sesion == 2 %}
+        <h3 style="text-align: center;">Pensamientos Saludables</h3>        
+        <div class="row" style="background-color: rgba(250, 250, 200,0.5); margin:40px; padding: 10px;">            
+            <article class="col s12" style="margin-top: 15px;">                
+
+                {% if submodulo == 1 %}
+                    <div class="full-width center-align" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="contenedor_slider">
+                            <div class="slider" id="slider" style="width: 400%;">
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Negativo01.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Negativo02.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Negativo03.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Negativo04.png')}}" class="slider_img">
+                                </div>
+                            </div>
+                            <div class="slider_btn slider_btn_right" id="btn_right" name="btn_right">&#62;</div>
+                            <!-- <div class="slider_btn slider_btn_left" id="btn_left" name="btn_left">&#60;</div> -->
+                        </div>
+                    </div><br>
+
+                    <div id="btnsiguiente" name="btnsiguiente" class="full-width center-align" style="display: none; justify-content: center; align-items: center;">
+                        <a href="/mod1/sesion2/subm1/test" class="btn-large indigo waves-effect efecto-pulse">Siguiente</a>
+                    </div>
+                {% endif %}
+
+                {% if submodulo == 2 %}
+                    <div class="full-width center-align" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="contenedor_slider">
+                            <div class="slider" id="slider" style="width: 300%;">
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Ansiedad01.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Ansiedad02.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Ansiedad03.png')}}" class="slider_img">
+                                </div>
+                            </div>
+                            <div class="slider_btn slider_btn_right" id="btn_right" name="btn_right">&#62;</div>
+                            <!-- <div class="slider_btn slider_btn_left" id="btn_left" name="btn_left">&#60;</div> -->
+                        </div>
+                    </div><br>
+
+                    <div id="btnsiguiente" name="btnsiguiente" class="full-width center-align" style="display: none; justify-content: center; align-items: center;">
+                        <a href="/mod1/sesion2/subm2/test" class="btn-large indigo waves-effect efecto-pulse">Siguiente</a>
+                    </div>
+                {% endif %}
+
+                {% if submodulo == 3 %}
+                    <div class="full-width center-align" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="contenedor_slider">
+                            <div class="slider" id="slider" style="width: 300%;">
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Depresion01.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Depresion02.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Depresion03.png')}}" class="slider_img">
+                                </div>
+                            </div>
+                            <div class="slider_btn slider_btn_right" id="btn_right" name="btn_right">&#62;</div>
+                            <!-- <div class="slider_btn slider_btn_left" id="btn_left" name="btn_left">&#60;</div> -->
+                        </div>
+                    </div><br>
+
+                    <div id="btnsiguiente" name="btnsiguiente" class="full-width center-align" style="display: none; justify-content: center; align-items: center;">
+                        <a href="/mod1/sesion2/subm3/test" class="btn-large indigo waves-effect efecto-pulse">Siguiente</a>
+                    </div>
+                {% endif %}
+
+                {% if submodulo == 4 %}
+                    <div class="full-width center-align" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="contenedor_slider">
+                            <div class="slider" id="slider" style="width: 300%;">
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/RiesgoS01.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/RiesgoS02.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/RiesgoS03.png')}}" class="slider_img">
+                                </div>
+                            </div>
+                            <div class="slider_btn slider_btn_right" id="btn_right" name="btn_right">&#62;</div>
+                            <!-- <div class="slider_btn slider_btn_left" id="btn_left" name="btn_left">&#60;</div> -->
+                        </div>
+                    </div><br>
+
+                    <div id="btnsiguiente" name="btnsiguiente" class="full-width center-align" style="display: none; justify-content: center; align-items: center;">
+                        <a href="/mod1/sesion2/subm4/test" class="btn-large indigo waves-effect efecto-pulse">Siguiente</a>
+                    </div>
+                {% endif %}
+
+                {% if submodulo == 5 %}
+                    <div class="full-width center-align" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="contenedor_slider">
+                            <div class="slider" id="slider" style="width: 400%;">
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/PositivoA01.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/PositivoA02.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/PositivoA03.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/PositivoA04.png')}}" class="slider_img">
+                                </div>
+                            </div>
+                            <div class="slider_btn slider_btn_right" id="btn_right" name="btn_right">&#62;</div>
+                            <!-- <div class="slider_btn slider_btn_left" id="btn_left" name="btn_left">&#60;</div> -->
+                        </div>
+                    </div><br>
+
+                    <div id="btnsiguiente" name="btnsiguiente" class="full-width center-align" style="display: none; justify-content: center; align-items: center;">
+                        <a href="/mod1/sesion2/subm5/test" class="btn-large indigo waves-effect efecto-pulse">Siguiente</a>
+                    </div>
+                {% endif %}
+
+                {% if submodulo == 6 %}
+                    <div class="full-width center-align" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="contenedor_slider">
+                            <div class="slider" id="slider" style="width: 300%;">
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/PositivoS01.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/PositivoS02.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/PositivoS03.png')}}" class="slider_img">
+                                </div>
+                            </div>
+                            <div class="slider_btn slider_btn_right" id="btn_right" name="btn_right">&#62;</div>
+                            <!-- <div class="slider_btn slider_btn_left" id="btn_left" name="btn_left">&#60;</div> -->
+                        </div>
+                    </div><br>
+
+                    <div id="btnsiguiente" name="btnsiguiente" class="full-width center-align" style="display: none; justify-content: center; align-items: center;">
+                        <a href="/mod1/sesion2/subm6/test" class="btn-large indigo waves-effect efecto-pulse">Siguiente</a>
+                    </div>
+                {% endif %}
+
+                {% if submodulo == 7 %}
+                    <div class="full-width center-align" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="contenedor_slider">
+                            <div class="slider" id="slider" style="width: 300%;">
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/SentirP01.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/SentirP02.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/SentirP03.png')}}" class="slider_img">
+                                </div>
+                            </div>
+                            <div class="slider_btn slider_btn_right" id="btn_right" name="btn_right">&#62;</div>
+                            <!-- <div class="slider_btn slider_btn_left" id="btn_left" name="btn_left">&#60;</div> -->
+                        </div>
+                    </div><br>
+
+                    <div id="btnsiguiente" name="btnsiguiente" class="full-width center-align" style="display: none; justify-content: center; align-items: center;">
+                        <a href="/mod1/sesion2/subm7/test" class="btn-large indigo waves-effect efecto-pulse">Siguiente</a>
+                    </div>
+                {% endif %}
+
+                {% if submodulo > 7 %}
+                    <h1 style="text-align: center;">En construcción ...</h1>
+                {% endif %}
+
+            </article><br>
+        </div>
+        <script src="{{ url_for('static',filename='js/slider.js') }}"></script>
+    {% endif %}
+
+
+    <!-- Tengo autocontrol - Falta -->
+    {% if modulo == 2 and sesion == 1 %}
+        <h3 style="text-align: center;">Tengo autocontrol</h3>
+        <!-- Falta por terminar -->
+        <div class="row" style="background-color: rgba(250, 250, 200,0.5); margin:40px; padding: 10px;">            
+            <article class="col s12" style="margin-top: 15px;">
+
+                {% if submodulo == 1 %}
+                    <div class="full-width center-align" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="contenedor_slider">
+                            <div class="slider" id="slider" style="width: 300%;">
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Ansiedad01.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Ansiedad02.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Ansiedad03.png')}}" class="slider_img">
+                                </div>
+                            </div>
+                            <div class="slider_btn slider_btn_right" id="btn_right" name="btn_right">&#62;</div>
+                            <!-- <div class="slider_btn slider_btn_left" id="btn_left" name="btn_left">&#60;</div> -->
+                        </div>
+                    </div><br>
+
+                    <div id="btnsiguiente" name="btnsiguiente" class="full-width center-align" style="display: none; justify-content: center; align-items: center;">
+                        <a href="/mod2/sesion1/subm1/test" class="btn-large indigo waves-effect efecto-pulse">Siguiente</a>
+                    </div>
+                {% endif %}
+
+                {% if submodulo == 2 %}
+                    <div class="full-width center-align" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="contenedor_slider">
+                            <div class="slider" id="slider" style="width: 300%;">
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Ansiedad01.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Ansiedad02.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Ansiedad03.png')}}" class="slider_img">
+                                </div>
+                            </div>
+                            <div class="slider_btn slider_btn_right" id="btn_right" name="btn_right">&#62;</div>
+                            <!-- <div class="slider_btn slider_btn_left" id="btn_left" name="btn_left">&#60;</div> -->
+                        </div>
+                    </div><br>
+
+                    <div id="btnsiguiente" name="btnsiguiente" class="full-width center-align" style="display: none; justify-content: center; align-items: center;">
+                        <a href="/mod2/sesion1/subm2/test" class="btn-large indigo waves-effect efecto-pulse">Siguiente</a>
+                    </div>
+                {% endif %}
+
+                {% if submodulo == 3 %}
+                    <div class="full-width center-align" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="contenedor_slider">
+                            <div class="slider" id="slider" style="width: 300%;">
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Ansiedad01.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Ansiedad02.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Ansiedad03.png')}}" class="slider_img">
+                                </div>
+                            </div>
+                            <div class="slider_btn slider_btn_right" id="btn_right" name="btn_right">&#62;</div>
+                            <!-- <div class="slider_btn slider_btn_left" id="btn_left" name="btn_left">&#60;</div> -->
+                        </div>
+                    </div><br>
+
+                    <div id="btnsiguiente" name="btnsiguiente" class="full-width center-align" style="display: none; justify-content: center; align-items: center;">
+                        <a href="/mod2/sesion1/subm3/test" class="btn-large indigo waves-effect efecto-pulse">Siguiente</a>
+                    </div>
+                {% endif %}
+
+                {% if submodulo == 4 %}
+                    <div class="full-width center-align" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="contenedor_slider">
+                            <div class="slider" id="slider" style="width: 300%;">
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Ansiedad01.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Ansiedad02.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M1/S2/Ansiedad03.png')}}" class="slider_img">
+                                </div>
+                            </div>
+                            <div class="slider_btn slider_btn_right" id="btn_right" name="btn_right">&#62;</div>
+                            <!-- <div class="slider_btn slider_btn_left" id="btn_left" name="btn_left">&#60;</div> -->
+                        </div>
+                    </div><br>
+
+                    <div id="btnsiguiente" name="btnsiguiente" class="full-width center-align" style="display: none; justify-content: center; align-items: center;">
+                        <a href="/mod2/sesion1/subm4/test" class="btn-large indigo waves-effect efecto-pulse">Siguiente</a>
+                    </div>
+                {% endif %}                
+
+            </article><br>
+        </div>
+        <script src="{{ url_for('static',filename='js/slider.js') }}"></script>
+    {% endif %}
+
+
+    <!-- Sin enfadarme respondo -->
+    {% if modulo == 2 and sesion == 2 %}
+        <h3 style="text-align: center;">Pienso antes de hablar</h3>
+        <div class="row" style="background-color: rgba(250, 250, 200,0.5); margin:40px; padding: 10px;">            
+            <article class="col s12" style="margin-top: 15px;">
+
+                {% if submodulo == 1 %}
+                    <div class="full-width center-align" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="contenedor_slider">
+                            <div class="slider" id="slider" style="width: 300%;">
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M2/S1/Frustracion01.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M2/S1/Frustracion02.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M2/S1/Frustracion03.png')}}" class="slider_img">
+                                </div>
+                            </div>
+                            <div class="slider_btn slider_btn_right" id="btn_right" name="btn_right">&#62;</div>
+                            <!-- <div class="slider_btn slider_btn_left" id="btn_left" name="btn_left">&#60;</div> -->
+                        </div>
+                    </div><br>
+
+                    <div id="btnsiguiente" name="btnsiguiente" class="full-width center-align" style="display: none; justify-content: center; align-items: center;">
+                        <a href="/mod2/sesion2/subm1/test" class="btn-large indigo waves-effect efecto-pulse">Siguiente</a>
+                    </div>
+                {% endif %}
+
+                {% if submodulo == 2 %}
+                    <div class="full-width center-align" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="contenedor_slider">
+                            <div class="slider" id="slider" style="width: 300%;">
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M2/S1/FrustracionS01.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M2/S1/FrustracionS02.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M2/S1/FrustracionS03.png')}}" class="slider_img">
+                                </div>
+                            </div>
+                            <div class="slider_btn slider_btn_right" id="btn_right" name="btn_right">&#62;</div>
+                            <!-- <div class="slider_btn slider_btn_left" id="btn_left" name="btn_left">&#60;</div> -->
+                        </div>
+                    </div><br>
+
+                    <div id="btnsiguiente" name="btnsiguiente" class="full-width center-align" style="display: none; justify-content: center; align-items: center;">
+                        <a href="/mod2/sesion2/subm2/test" class="btn-large indigo waves-effect efecto-pulse">Siguiente</a>
+                    </div>
+                {% endif %}
+
+                {% if submodulo > 2 %}
+                    <h1 style="text-align: center;">En construcción ...</h1>
+                {% endif %}
+
+            </article><br>
+        </div>
+        <script src="{{ url_for('static',filename='js/slider.js') }}"></script>
+    {% endif %}
+
+
+    <!-- Respiro profundo -->
+    {% if modulo == 3 and sesion == 1 %}
+        <h3 style="text-align: center;">Aprendo a respirar</h3>
+        <div class="row" style="background-color: rgba(250, 250, 200,0.5); margin:40px; padding: 10px;">            
+            <article class="col s12" style="margin-top: 15px;">
+
+                {% if submodulo == 1 %}
+                    <div class="full-width center-align" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="contenedor_slider">
+                            <div class="slider" id="slider" style="width: 300%;">
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M3/S1/Respiracion01.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M3/S1/Respiracion02.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M3/S1/Respiracion03.png')}}" class="slider_img">
+                                </div>
+                            </div>
+                            <div class="slider_btn slider_btn_right" id="btn_right" name="btn_right">&#62;</div>
+                            <!-- <div class="slider_btn slider_btn_left" id="btn_left" name="btn_left">&#60;</div> -->
+                        </div>
+                    </div><br>
+
+                    <div id="btnsiguiente" name="btnsiguiente" class="full-width center-align" style="display: none; justify-content: center; align-items: center;">
+                        <a href="/mod3/sesion1/subm1/test" class="btn-large indigo waves-effect efecto-pulse">Siguiente</a>
+                    </div>
+                {% endif %}
+
+                {% if submodulo > 1 %}
+                    <h1 style="text-align: center;">En construcción ...</h1>
+                {% endif %}
+
+            </article><br>
+        </div>
+        <script src="{{ url_for('static',filename='js/slider.js') }}"></script>
+    {% endif %}
+
+
+    <!-- Ejercito mi cuerpo -->
+    {% if modulo == 3 and sesion == 2 %}
+        <h3 style="text-align: center;">Aprendo a ejercitar mi cuerpo</h3>
+        <div class="row" style="background-color: rgba(250, 250, 200,0.5); margin:40px; padding: 10px;">            
+            <article class="col s12" style="margin-top: 15px;">
+
+                {% if submodulo == 1 %}
+                    <div class="full-width center-align" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="contenedor_slider">
+                            <div class="slider" id="slider" style="width: 300%;">
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M3/S1/Muscular01.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M3/S1/Muscular02.png')}}" class="slider_img">
+                                </div>
+                                <div class="slider_section">
+                                    <img src="{{ url_for('static',filename='img/M3/S1/Muscular03.png')}}" class="slider_img">
+                                </div>
+                            </div>
+                            <div class="slider_btn slider_btn_right" id="btn_right" name="btn_right">&#62;</div>
+                            <!-- <div class="slider_btn slider_btn_left" id="btn_left" name="btn_left">&#60;</div> -->
+                        </div>
+                    </div><br>
+
+                    <div id="btnsiguiente" name="btnsiguiente" class="full-width center-align" style="display: none; justify-content: center; align-items: center;">
+                        <a href="/mod3/sesion2/subm1/test" class="btn-large indigo waves-effect efecto-pulse">Siguiente</a>
+                    </div>
+                {% endif %}
+
+                {% if submodulo > 1 %}
+                    <h1 style="text-align: center;">En construcción ...</h1>
+                {% endif %}
+
+            </article><br>
+        </div>
+        <script src="{{ url_for('static',filename='js/slider.js') }}"></script>
+    {% endif %}
+
+
+    </div>
+{% endblock %}
+<!-- CONTENIDO -->

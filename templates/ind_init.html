@@ -1,0 +1,81 @@
+{% extends "bs_ind.html" %}
+{% block contenido %}	
+		<!-- Empieza SeccionLogin -->
+	{% if seleccion == 0 %}	
+		<div class="section seccion login">
+			<div style="margin-top: 2%;">
+				<form method ="POST" action="/index_usr">
+			            <h2> Ingrese sus datos </h2>
+			            <div class="row">
+							<div class="input-field col s11 blue-text">
+							  	<i class="material-icons prefix">account_circle</i>
+							  	<input id="Nombre" name="Nombre" type="text" class="validate" length="64" maxlength="64" required >
+							  	<label for="Nombre"> Nombre </label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s11 blue-text">
+							  	<i class="material-icons prefix">access_time</i>
+							  	<input id="Edad" name="Edad" type="number" min="8" max="16" class="validate" required >
+							  	<label for="Edad"> Edad </label>
+							</div>
+						</div>						
+						<div class="row">
+							<div class="input-field col s11 blue-text">
+								<i class="material-icons prefix">people_outline</i>
+	                            <select class="icons" required>
+	                                <option value="-1" disabled selected>Selecciona una opción</option>
+	                                <option value="1" class="circle">Femenino</option>
+	                                <option value="2" class="circle">Masculino</option>	                                
+	                            </select>
+	                            <label>Género</label>
+                        	</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s11 s11 blue-text">
+								<i class="material-icons prefix">access_time</i>
+	                            <select class="icons" required>
+	                                <option value="-1" disabled selected>Selecciona una opción</option>
+	                                <option value="1" class="circle">4to de primaria</option>
+	                                <option value="1" class="circle">5to de primaria</option>
+	                                <option value="2" class="circle">6to de primaria</option>	                                
+	                            </select>
+	                            <label>Grado</label>
+                        	</div>
+						</div>
+						
+						<div class="col s12  center"> 
+							<button class="btn-large pink darken-4 waves-effect waves-light" type="submit" id="enviar" name="enviar" value="Ingresar" >Acceder <i class="material-icons right">vpn_key</i></button>
+						</div>					
+	            </form>
+            </div>
+		</div>
+	{% endif %}
+
+	{% if seleccion == 1 %}	
+		<div class="section seccion login">
+			<div style="margin-top: 2%;">
+				<form method ="POST" action="/login">
+			            <h2> Login </h2>
+			            <div class="row">
+							<div class="input-field col s11 blue-text">
+							  	<i class="material-icons prefix">account_circle</i>
+							  	<input id="Nombre" name="Nombre" type="text" class="validate" length="64" maxlength="64" required >
+							  	<label for="Nombre"> Nombre </label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s11 blue-text">
+							  	<i class="material-icons prefix">https</i>
+							  	<input id="Contra" name="Contra" type="password" class="validate" length="64" maxlength="64" required >
+							  	<label for="Contra"> Contraseña </label>
+							</div>
+						</div>						
+						<div class="col s12  center"> 
+							<button class="btn-large pink darken-4 waves-effect waves-light" type="submit" id="enviar" name="enviar" value="Ingresar" >Acceder <i class="material-icons right">vpn_key</i></button>
+						</div>					
+	            </form>
+            </div>
+		</div>	
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "bs_usr.html" %}
+
+<!-- CONTENIDO -->
+{% block contenido %}
+        {% if modulo==1 %}
+        <div class="row" style="background-color: rgba(250, 250, 200,0.5); width: 70%; padding: 1% 0% 1% 0%; margin-top: 1.5%;">
+            <h4 style="text-align: center;"> Interactuando con mis pensamientos decido que hacer </h4>
+        {% endif %}
+        {% if modulo==2 %}
+        <div class="row" style="background-color: rgba(190, 230, 190,0.5); width: 70%; padding: 1% 0% 1% 0%; margin-top: 1.5%;">
+            <h4 style="text-align: center;"> Me controlo para no hacerle daño a los demas </h4>
+        {% endif %}
+        {% if modulo==3 %}
+        <div class="row" style="background-color: rgba(150, 190, 240,0.5); width: 70%; padding: 1% 0% 1% 0%; margin-top: 1.5%;">
+            <h4 style="text-align: center;"> Me relajo para no tener emociones perturbadoras </h4>
+        {% endif %}
+            <article class="col s12">
+
+                <div class="full-width center-align">
+
+                    <div class="full-width center-align" style="margin: 40px 0;">
+                        <!-- Modulo 1 -->
+                        {% if modulo==1 %}
+                        <a href="/mod1/sesion1/subm1">
+                        <div class="tile">
+                            <div class="tile-icon"><i class="zmdi zmdi-account-circle"></i></div>
+                            <div class="tile-caption">
+                                <br>
+                                <span style="font-size: 24px;" class="center-align">Como me siento</span>                            
+                            </div>
+                            <a href="/mod1/sesion1/subm1" class="tile-link waves-effect waves-light">Como me siento &nbsp; <i class="zmdi zmdi-caret-right-circle"></i></a>
+                        </div>
+                        </a><br>
+
+                        <a href="/mod1/sesion2/subm1">
+                        <div class="tile">
+                            <div class="tile-icon"><i class="zmdi zmdi-male-female"></i></div>
+                            <div class="tile-caption">
+                                <br>
+                                <span style="font-size: 16px;" class="center-align">Como manifiesto mi sentir</span>                            
+                            </div>
+                            <a href="/mod1/sesion2/subm1" class="tile-link waves-effect waves-light">Como manifiesto mi sentir &nbsp; <i class="zmdi zmdi-caret-right-circle"></i></a>
+                        </div>
+                        </a>
+                        {% endif %}
+                        <!-- Fin modulo 1 -->
+
+                        <!-- Modulo 2 -->
+                        {% if modulo==2 %}
+                        <a href="/mod2/sesion1/subm1">
+                        <div class="tile">
+                            <div class="tile-icon"><i class="zmdi zmdi-male"></i></div>
+                            <div class="tile-caption">
+                                <br>
+                                <span style="font-size: 23px;" class="center-align">Tengo autocontrol</span>                            
+                            </div>
+                            <a href="/mod2/sesion1/subm1" class="tile-link waves-effect waves-light">Tengo autocontrol &nbsp; <i class="zmdi zmdi-caret-right-circle"></i></a>
+                        </div>
+                        </a><br>
+
+                        <a href="/mod2/sesion2/subm1">
+                        <div class="tile">
+                            <div class="tile-icon"><i class="zmdi zmdi-mood"></i></div>
+                            <div class="tile-caption">
+                                <br>
+                                <span style="font-size: 16px;" class="center-align">Sin enfadarme respondo</span>                            
+                            </div>
+                            <a href="/mod2/sesion2/subm1" class="tile-link waves-effect waves-light">Sin enfadarme respondo &nbsp; <i class="zmdi zmdi-caret-right-circle"></i></a>
+                        </div>
+                        </a>
+                        {% endif %}
+                        <!-- Fin modulo 2 -->
+
+                        <!-- Modulo 3 -->
+                        {% if modulo==3 %}
+                        <a href="/mod3/sesion1/subm1">
+                        <div class="tile">
+                            <div class="tile-icon"><i class="zmdi zmdi-face"></i></div>
+                            <div class="tile-caption">
+                                <br>
+                                <span style="font-size: 23px;" class="center-align">Respiro profundo</span>                            
+                            </div>
+                            <a href="/mod3/sesion1/subm1" class="tile-link waves-effect waves-light">Respiro profundo &nbsp; <i class="zmdi zmdi-caret-right-circle"></i></a>
+                        </div>
+                        </a><br>
+
+                        <a href="/mod3/sesion2/subm1">
+                        <div class="tile">
+                            <div class="tile-icon"><i class="zmdi zmdi-run"></i></div>
+                            <div class="tile-caption">
+                                <br>
+                                <span style="font-size: 24px;" class="center-align">Ejercito mi cuerpo</span>                            
+                            </div>
+                            <a href="/mod3/sesion2/subm1" class="tile-link waves-effect waves-light">Ejercito mi cuerpo &nbsp; <i class="zmdi zmdi-caret-right-circle"></i></a>
+                        </div>
+                        </a>
+                        {% endif %}
+                        <!-- Fin modulo 3 -->
+                    </div>
+
+                </div>
+            </article>
+        </div>
+{% endblock %}
+<!-- CONTENIDO -->

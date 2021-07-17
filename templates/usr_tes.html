@@ -1,0 +1,815 @@
+{% extends "bs_usr.html" %}
+
+<!-- CONTENIDO -->
+{% block contenido %}
+    <div>
+        <!-- <h3 style="text-align: center;">Test - Modulo {{modulo}} Sesion {{sesion}} Submodulo {{submodulo}}</h3> -->
+    
+    <!-- Como me siento -->
+    {% if modulo == 1 and sesion == 1 %}
+
+        <h3 style="text-align: center;">Selecciona la imagen que consideres correcta</h3>
+        <div class="row" style="background-color: rgba(250, 250, 200,0.5); margin:40px; padding: 10px;">
+            <article class="col s12" style="margin-top: 15px;">
+                <div class="full-width center-align" style="display: block; justify-content: center; align-items: center;">
+
+            {% if submodulo == 1 %}        
+        
+                    <form action="#" method="post">
+
+                        <div class="row">
+                            <h4>¿Cuándo me dan un regalo que emoción expreso?</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc11" name="preg1" value="0" onclick="colorea('mopc11');">
+                                <label for="opc11" >
+                                    <img class="Preguntas" id="mopc11" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test1-p1-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc12" name="preg1" value="0" onclick="colorea('mopc12');">
+                                <label for="opc12">
+                                    <img class="Preguntas" id="mopc12" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test1-p1-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc13" name="preg1" value="1" onclick="colorea('mopc13');">
+                                <label for="opc13">
+                                    <img class="Preguntas" id="mopc13" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test1-p1-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="row">
+                            <h4>Luis se divirtió mucho en la fiesta. ¿Cuál es la emoción que él presenta? </h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc21" name="preg2" value="1" onclick="colorea('mopc21');">
+                                <label for="opc21">
+                                    <img class="Preguntas" id="mopc21" name="mpreg2" src="{{ url_for('static',filename='img/M1/S1/Test1-p2-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc22" name="preg2" value="0" onclick="colorea('mopc22');">
+                                <label for="opc22">
+                                    <img class="Preguntas" id="mopc22" name="mpreg2" src="{{ url_for('static',filename='img/M1/S1/Test1-p2-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc23" name="preg2" value="0" onclick="colorea('mopc23');">
+                                <label for="opc23">
+                                    <img class="Preguntas" id="mopc23" name="mpreg2" src="{{ url_for('static',filename='img/M1/S1/Test1-p2-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="full-width center-align">
+                            <button onclick="enviaForm(this.form,2,1,1,1);" class="btn-large indigo waves-effect efecto-pulse">Enviar respuestas</button>
+                            <!-- enviaForm(this.form,numero de preguntas,modulo,sesion,submodulo); -->
+                        </div><br>
+
+                    </form>                    
+                
+            {% endif %}
+
+            {% if submodulo == 2 %}        
+        
+                    <form action="#" method="post">
+
+                        <div class="row">
+                            <h4>Pedro y Francisco se están peleando por ver quien gana la computadora. ¿Qué emoción sentirán?</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc11" name="preg1" value="0" onclick="colorea('mopc11');">
+                                <label for="opc11" >
+                                    <img class="Preguntas" id="mopc11" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p1-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc12" name="preg1" value="0" onclick="colorea('mopc12');">
+                                <label for="opc12">
+                                    <img class="Preguntas" id="mopc12" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p1-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc13" name="preg1" value="1" onclick="colorea('mopc13');">
+                                <label for="opc13">
+                                    <img class="Preguntas" id="mopc13" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p1-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="row">
+                            <h4>Tu cara se pone roja, juntas tus cejas y cierras los puños de tus manos</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc21" name="preg2" value="1" onclick="colorea('mopc21');">
+                                <label for="opc21">
+                                    <img class="Preguntas" id="mopc21" name="mpreg2" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc22" name="preg2" value="0" onclick="colorea('mopc22');">
+                                <label for="opc22">
+                                    <img class="Preguntas" id="mopc22" name="mpreg2" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc23" name="preg2" value="0" onclick="colorea('mopc23');">
+                                <label for="opc23">
+                                    <img class="Preguntas" id="mopc23" name="mpreg2" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="full-width center-align">
+                            <button onclick="enviaForm(this.form,2,1,1,2);" class="btn-large indigo waves-effect efecto-pulse">Enviar respuestas</button>
+                            <!-- enviaForm(this.form,numero de preguntas,modulo,sesion,submodulo); -->
+                        </div><br>
+
+                    </form>                    
+                
+            {% endif %}            
+
+
+            {% if submodulo == 3 %}
+        
+                    <form action="#" method="post">
+
+                        <div class="row">
+                            <h4>Tus pupilas se dilatan, tus ojos se tensan, tus cejas se levantan y tu cuerpo tiembla</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc11" name="preg1" value="0" onclick="colorea('mopc11');">
+                                <label for="opc11" >
+                                    <img class="Preguntas" id="mopc11" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test3-p1-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc12" name="preg1" value="0" onclick="colorea('mopc12');">
+                                <label for="opc12">
+                                    <img class="Preguntas" id="mopc12" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc13" name="preg1" value="1" onclick="colorea('mopc13');">
+                                <label for="opc13">
+                                    <img class="Preguntas" id="mopc13" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="full-width center-align">
+                            <button onclick="enviaForm(this.form,1,1,1,3);" class="btn-large indigo waves-effect efecto-pulse">Enviar respuestas</button>
+                            <!-- enviaForm(this.form,numero de preguntas,modulo,sesion,submodulo); -->
+                        </div><br>
+
+                    </form>                    
+                
+            {% endif %}
+
+            {% if submodulo == 4 %}
+        
+                    <form action="#" method="post">
+
+                        <div class="row">
+                            <h4>Te sientes muy cansado, no tienes ganas de hacer nada, tus ojos están vidriosos y te sientes muy débil</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc11" name="preg1" value="0" onclick="colorea('mopc11');">
+                                <label for="opc11" >
+                                    <img class="Preguntas" id="mopc11" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test3-p1-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc12" name="preg1" value="1" onclick="colorea('mopc12');">
+                                <label for="opc12">
+                                    <img class="Preguntas" id="mopc12" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc13" name="preg1" value="0" onclick="colorea('mopc13');">
+                                <label for="opc13">
+                                    <img class="Preguntas" id="mopc13" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="full-width center-align">
+                            <button onclick="enviaForm(this.form,1,1,1,4);" class="btn-large indigo waves-effect efecto-pulse">Enviar respuestas</button>
+                            <!-- enviaForm(this.form,numero de preguntas,modulo,sesion,submodulo); -->
+                        </div><br>
+
+                    </form>                    
+                
+            {% endif %}
+
+
+            {% if submodulo == 5 %}
+        
+                    <form action="#" method="post">
+
+                        <div class="row">
+                            <h4>Falta</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc11" name="preg1" value="0" onclick="colorea('mopc11');">
+                                <label for="opc11" >
+                                    <img class="Preguntas" id="mopc11" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test3-p1-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc12" name="preg1" value="1" onclick="colorea('mopc12');">
+                                <label for="opc12">
+                                    <img class="Preguntas" id="mopc12" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc13" name="preg1" value="0" onclick="colorea('mopc13');">
+                                <label for="opc13">
+                                    <img class="Preguntas" id="mopc13" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="full-width center-align">
+                            <button onclick="enviaForm(this.form,1,1,1,5);" class="btn-large indigo waves-effect efecto-pulse">Enviar respuestas</button>
+                            <!-- enviaForm(this.form,numero de preguntas,modulo,sesion,submodulo); -->
+                        </div><br>
+
+                    </form>
+                
+            {% endif %}
+
+        </div>
+            </article><br>
+        </div>
+    {% endif %}
+
+
+    <!-- Como manifiesto mi sentir -->
+    {% if modulo == 1 and sesion == 2 %}
+        <h3 style="text-align: center;">Selecciona la imagen que consideres correcta</h3>
+        <div class="row" style="background-color: rgba(250, 250, 200,0.5); margin:40px; padding: 10px;">
+            <article class="col s12" style="margin-top: 15px;">
+                <div class="full-width center-align" style="display: block; justify-content: center; align-items: center;">
+
+            {% if submodulo == 1 %}
+                    <form action="#" method="post">
+
+                        <div class="row">
+                            <h4>Falta</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc11" name="preg1" value="0" onclick="colorea('mopc11');">
+                                <label for="opc11" >
+                                    <img class="Preguntas" id="mopc11" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test3-p1-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc12" name="preg1" value="1" onclick="colorea('mopc12');">
+                                <label for="opc12">
+                                    <img class="Preguntas" id="mopc12" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc13" name="preg1" value="0" onclick="colorea('mopc13');">
+                                <label for="opc13">
+                                    <img class="Preguntas" id="mopc13" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="full-width center-align">
+                            <button onclick="enviaForm(this.form,1,1,2,1);" class="btn-large indigo waves-effect efecto-pulse">Enviar respuestas</button>
+                            <!-- enviaForm(this.form,numero de preguntas,modulo,sesion,submodulo); -->
+                        </div><br>
+
+                    </form>
+            {% endif %}
+
+
+            {% if submodulo == 2 %}
+                    <form action="#" method="post">
+
+                        <div class="row">
+                            <h4>Falta</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc11" name="preg1" value="0" onclick="colorea('mopc11');">
+                                <label for="opc11" >
+                                    <img class="Preguntas" id="mopc11" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test3-p1-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc12" name="preg1" value="1" onclick="colorea('mopc12');">
+                                <label for="opc12">
+                                    <img class="Preguntas" id="mopc12" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc13" name="preg1" value="0" onclick="colorea('mopc13');">
+                                <label for="opc13">
+                                    <img class="Preguntas" id="mopc13" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="full-width center-align">
+                            <button onclick="enviaForm(this.form,1,1,2,2);" class="btn-large indigo waves-effect efecto-pulse">Enviar respuestas</button>
+                            <!-- enviaForm(this.form,numero de preguntas,modulo,sesion,submodulo); -->
+                        </div><br>
+
+                    </form>
+            {% endif %}
+
+
+            {% if submodulo == 3 %}
+                    <form action="#" method="post">
+
+                        <div class="row">
+                            <h4>Falta</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc11" name="preg1" value="0" onclick="colorea('mopc11');">
+                                <label for="opc11" >
+                                    <img class="Preguntas" id="mopc11" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test3-p1-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc12" name="preg1" value="1" onclick="colorea('mopc12');">
+                                <label for="opc12">
+                                    <img class="Preguntas" id="mopc12" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc13" name="preg1" value="0" onclick="colorea('mopc13');">
+                                <label for="opc13">
+                                    <img class="Preguntas" id="mopc13" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="full-width center-align">
+                            <button onclick="enviaForm(this.form,1,1,2,3);" class="btn-large indigo waves-effect efecto-pulse">Enviar respuestas</button>
+                            <!-- enviaForm(this.form,numero de preguntas,modulo,sesion,submodulo); -->
+                        </div><br>
+
+                    </form>
+            {% endif %}
+
+
+            {% if submodulo == 4 %}
+                    <form action="#" method="post">
+
+                        <div class="row">
+                            <h4>Falta</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc11" name="preg1" value="0" onclick="colorea('mopc11');">
+                                <label for="opc11" >
+                                    <img class="Preguntas" id="mopc11" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test3-p1-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc12" name="preg1" value="1" onclick="colorea('mopc12');">
+                                <label for="opc12">
+                                    <img class="Preguntas" id="mopc12" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc13" name="preg1" value="0" onclick="colorea('mopc13');">
+                                <label for="opc13">
+                                    <img class="Preguntas" id="mopc13" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="full-width center-align">
+                            <button onclick="enviaForm(this.form,1,1,2,4);" class="btn-large indigo waves-effect efecto-pulse">Enviar respuestas</button>
+                            <!-- enviaForm(this.form,numero de preguntas,modulo,sesion,submodulo); -->
+                        </div><br>
+
+                    </form>
+            {% endif %}
+
+
+            {% if submodulo == 5 %}
+                    <form action="#" method="post">
+
+                        <div class="row">
+                            <h4>Falta</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc11" name="preg1" value="0" onclick="colorea('mopc11');">
+                                <label for="opc11" >
+                                    <img class="Preguntas" id="mopc11" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test3-p1-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc12" name="preg1" value="1" onclick="colorea('mopc12');">
+                                <label for="opc12">
+                                    <img class="Preguntas" id="mopc12" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc13" name="preg1" value="0" onclick="colorea('mopc13');">
+                                <label for="opc13">
+                                    <img class="Preguntas" id="mopc13" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="full-width center-align">
+                            <button onclick="enviaForm(this.form,1,1,2,5);" class="btn-large indigo waves-effect efecto-pulse">Enviar respuestas</button>
+                            <!-- enviaForm(this.form,numero de preguntas,modulo,sesion,submodulo); -->
+                        </div><br>
+
+                    </form>
+            {% endif %}
+
+
+            {% if submodulo == 6 %}
+                    <form action="#" method="post">
+
+                        <div class="row">
+                            <h4>Falta</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc11" name="preg1" value="0" onclick="colorea('mopc11');">
+                                <label for="opc11" >
+                                    <img class="Preguntas" id="mopc11" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test3-p1-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc12" name="preg1" value="1" onclick="colorea('mopc12');">
+                                <label for="opc12">
+                                    <img class="Preguntas" id="mopc12" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc13" name="preg1" value="0" onclick="colorea('mopc13');">
+                                <label for="opc13">
+                                    <img class="Preguntas" id="mopc13" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="full-width center-align">
+                            <button onclick="enviaForm(this.form,1,1,2,6);" class="btn-large indigo waves-effect efecto-pulse">Enviar respuestas</button>
+                            <!-- enviaForm(this.form,numero de preguntas,modulo,sesion,submodulo); -->
+                        </div><br>
+
+                    </form>
+            {% endif %}
+
+
+            {% if submodulo == 7 %}
+                    <form action="#" method="post">
+
+                        <div class="row">
+                            <h4>Falta</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc11" name="preg1" value="0" onclick="colorea('mopc11');">
+                                <label for="opc11" >
+                                    <img class="Preguntas" id="mopc11" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test3-p1-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc12" name="preg1" value="1" onclick="colorea('mopc12');">
+                                <label for="opc12">
+                                    <img class="Preguntas" id="mopc12" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc13" name="preg1" value="0" onclick="colorea('mopc13');">
+                                <label for="opc13">
+                                    <img class="Preguntas" id="mopc13" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="full-width center-align">
+                            <button onclick="enviaForm(this.form,1,1,2,7);" class="btn-large indigo waves-effect efecto-pulse">Enviar respuestas</button>
+                            <!-- enviaForm(this.form,numero de preguntas,modulo,sesion,submodulo); -->
+                        </div><br>
+
+                    </form>
+            {% endif %}
+        
+        </div>
+            </article><br>
+        </div>
+    {% endif %}
+
+
+    <!-- Tengo autocontrol - Falta -->
+    {% if modulo == 2 and sesion == 1 %}
+        <h3 style="text-align: center;">Selecciona la imagen que consideres correcta</h3>
+        <div class="row" style="background-color: rgba(250, 250, 200,0.5); margin:40px; padding: 10px;">
+            <article class="col s12" style="margin-top: 15px;">
+                <div class="full-width center-align" style="display: block; justify-content: center; align-items: center;">
+
+            {% if submodulo == 1 %}
+                    <form action="#" method="post">
+
+                        <div class="row">
+                            <h4>Falta</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc11" name="preg1" value="0" onclick="colorea('mopc11');">
+                                <label for="opc11" >
+                                    <img class="Preguntas" id="mopc11" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test3-p1-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc12" name="preg1" value="1" onclick="colorea('mopc12');">
+                                <label for="opc12">
+                                    <img class="Preguntas" id="mopc12" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc13" name="preg1" value="0" onclick="colorea('mopc13');">
+                                <label for="opc13">
+                                    <img class="Preguntas" id="mopc13" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="full-width center-align">
+                            <button onclick="enviaForm(this.form,1,2,1,1);" class="btn-large indigo waves-effect efecto-pulse">Enviar respuestas</button>
+                            <!-- enviaForm(this.form,numero de preguntas,modulo,sesion,submodulo); -->
+                        </div><br>
+
+                    </form>
+            {% endif %}
+
+
+            {% if submodulo == 2 %}
+                    <form action="#" method="post">
+
+                        <div class="row">
+                            <h4>Falta</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc11" name="preg1" value="0" onclick="colorea('mopc11');">
+                                <label for="opc11" >
+                                    <img class="Preguntas" id="mopc11" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test3-p1-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc12" name="preg1" value="1" onclick="colorea('mopc12');">
+                                <label for="opc12">
+                                    <img class="Preguntas" id="mopc12" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc13" name="preg1" value="0" onclick="colorea('mopc13');">
+                                <label for="opc13">
+                                    <img class="Preguntas" id="mopc13" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="full-width center-align">
+                            <button onclick="enviaForm(this.form,1,2,1,2);" class="btn-large indigo waves-effect efecto-pulse">Enviar respuestas</button>
+                            <!-- enviaForm(this.form,numero de preguntas,modulo,sesion,submodulo); -->
+                        </div><br>
+
+                    </form>
+            {% endif %}
+
+
+            {% if submodulo == 3 %}
+                    <form action="#" method="post">
+
+                        <div class="row">
+                            <h4>Falta</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc11" name="preg1" value="0" onclick="colorea('mopc11');">
+                                <label for="opc11" >
+                                    <img class="Preguntas" id="mopc11" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test3-p1-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc12" name="preg1" value="1" onclick="colorea('mopc12');">
+                                <label for="opc12">
+                                    <img class="Preguntas" id="mopc12" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc13" name="preg1" value="0" onclick="colorea('mopc13');">
+                                <label for="opc13">
+                                    <img class="Preguntas" id="mopc13" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="full-width center-align">
+                            <button onclick="enviaForm(this.form,1,2,1,3);" class="btn-large indigo waves-effect efecto-pulse">Enviar respuestas</button>
+                            <!-- enviaForm(this.form,numero de preguntas,modulo,sesion,submodulo); -->
+                        </div><br>
+
+                    </form>
+            {% endif %}
+
+
+            {% if submodulo == 4 %}
+                    <form action="#" method="post">
+
+                        <div class="row">
+                            <h4>Falta</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc11" name="preg1" value="0" onclick="colorea('mopc11');">
+                                <label for="opc11" >
+                                    <img class="Preguntas" id="mopc11" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test3-p1-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc12" name="preg1" value="1" onclick="colorea('mopc12');">
+                                <label for="opc12">
+                                    <img class="Preguntas" id="mopc12" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc13" name="preg1" value="0" onclick="colorea('mopc13');">
+                                <label for="opc13">
+                                    <img class="Preguntas" id="mopc13" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="full-width center-align">
+                            <button onclick="enviaForm(this.form,1,2,1,4);" class="btn-large indigo waves-effect efecto-pulse">Enviar respuestas</button>
+                            <!-- enviaForm(this.form,numero de preguntas,modulo,sesion,submodulo); -->
+                        </div><br>
+
+                    </form>
+            {% endif %}
+        
+        </div>
+            </article><br>
+        </div>
+    {% endif %}
+
+
+    <!-- Sin enfadarme respondo -->
+    {% if modulo == 2 and sesion == 2 %}
+        <h3 style="text-align: center;">Selecciona la imagen que consideres correcta</h3>
+        <div class="row" style="background-color: rgba(250, 250, 200,0.5); margin:40px; padding: 10px;">
+            <article class="col s12" style="margin-top: 15px;">
+                <div class="full-width center-align" style="display: block; justify-content: center; align-items: center;">
+
+            {% if submodulo == 1 %}
+                    <form action="#" method="post">
+
+                        <div class="row">
+                            <h4>Falta</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc11" name="preg1" value="0" onclick="colorea('mopc11');">
+                                <label for="opc11" >
+                                    <img class="Preguntas" id="mopc11" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test3-p1-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc12" name="preg1" value="1" onclick="colorea('mopc12');">
+                                <label for="opc12">
+                                    <img class="Preguntas" id="mopc12" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc13" name="preg1" value="0" onclick="colorea('mopc13');">
+                                <label for="opc13">
+                                    <img class="Preguntas" id="mopc13" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="full-width center-align">
+                            <button onclick="enviaForm(this.form,1,2,2,1);" class="btn-large indigo waves-effect efecto-pulse">Enviar respuestas</button>
+                            <!-- enviaForm(this.form,numero de preguntas,modulo,sesion,submodulo); -->
+                        </div><br>
+
+                    </form>
+            {% endif %}
+
+
+            {% if submodulo == 2 %}
+                    <form action="#" method="post">
+
+                        <div class="row">
+                            <h4>Falta</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc11" name="preg1" value="0" onclick="colorea('mopc11');">
+                                <label for="opc11" >
+                                    <img class="Preguntas" id="mopc11" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test3-p1-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc12" name="preg1" value="1" onclick="colorea('mopc12');">
+                                <label for="opc12">
+                                    <img class="Preguntas" id="mopc12" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc13" name="preg1" value="0" onclick="colorea('mopc13');">
+                                <label for="opc13">
+                                    <img class="Preguntas" id="mopc13" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="full-width center-align">
+                            <button onclick="enviaForm(this.form,1,2,2,2);" class="btn-large indigo waves-effect efecto-pulse">Enviar respuestas</button>
+                            <!-- enviaForm(this.form,numero de preguntas,modulo,sesion,submodulo); -->
+                        </div><br>
+
+                    </form>
+            {% endif %}
+        
+        </div>
+            </article><br>
+        </div>
+    {% endif %}
+
+
+    <!-- Respiro profundo -->
+    {% if modulo == 3 and sesion == 1 %}
+        <h3 style="text-align: center;">Selecciona la imagen que consideres correcta</h3>
+        <div class="row" style="background-color: rgba(250, 250, 200,0.5); margin:40px; padding: 10px;">
+            <article class="col s12" style="margin-top: 15px;">
+                <div class="full-width center-align" style="display: block; justify-content: center; align-items: center;">
+
+            {% if submodulo == 1 %}
+                    <form action="#" method="post">
+
+                        <div class="row">
+                            <h4>Falta</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc11" name="preg1" value="0" onclick="colorea('mopc11');">
+                                <label for="opc11" >
+                                    <img class="Preguntas" id="mopc11" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test3-p1-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc12" name="preg1" value="1" onclick="colorea('mopc12');">
+                                <label for="opc12">
+                                    <img class="Preguntas" id="mopc12" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc13" name="preg1" value="0" onclick="colorea('mopc13');">
+                                <label for="opc13">
+                                    <img class="Preguntas" id="mopc13" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="full-width center-align">
+                            <button onclick="enviaForm(this.form,1,3,1,1);" class="btn-large indigo waves-effect efecto-pulse">Enviar respuestas</button>
+                            <!-- enviaForm(this.form,numero de preguntas,modulo,sesion,submodulo); -->
+                        </div><br>
+
+                    </form>
+            {% endif %}
+        
+        </div>
+            </article><br>
+        </div>
+    {% endif %}
+
+
+    <!-- Ejercito mi cuerpo -->
+    {% if modulo == 3 and sesion == 2 %}
+        <h3 style="text-align: center;">Selecciona la imagen que consideres correcta</h3>
+        <div class="row" style="background-color: rgba(250, 250, 200,0.5); margin:40px; padding: 10px;">
+            <article class="col s12" style="margin-top: 15px;">
+                <div class="full-width center-align" style="display: block; justify-content: center; align-items: center;">
+
+            {% if submodulo == 1 %}
+                    <form action="#" method="post">
+
+                        <div class="row">
+                            <h4>Falta</h4>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc11" name="preg1" value="0" onclick="colorea('mopc11');">
+                                <label for="opc11" >
+                                    <img class="Preguntas" id="mopc11" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test3-p1-o1.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc12" name="preg1" value="1" onclick="colorea('mopc12');">
+                                <label for="opc12">
+                                    <img class="Preguntas" id="mopc12" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o2.png')}}" alt="">
+                                </label>
+                            </div>
+                            <div class="col s12 l4">
+                                <input type="radio" id="opc13" name="preg1" value="0" onclick="colorea('mopc13');">
+                                <label for="opc13">
+                                    <img class="Preguntas" id="mopc13" name="mpreg1" src="{{ url_for('static',filename='img/M1/S1/Test2-p2-o3.png')}}" alt="">
+                                </label>
+                            </div>
+                        </div><br>
+
+                        <div class="full-width center-align">
+                            <button onclick="enviaForm(this.form,1,3,2,1);" class="btn-large indigo waves-effect efecto-pulse">Enviar respuestas</button>
+                            <!-- enviaForm(this.form,numero de preguntas,modulo,sesion,submodulo); -->
+                        </div><br>
+
+                    </form>
+            {% endif %}
+        
+        </div>
+            </article><br>
+        </div>
+    {% endif %}
+
+
+    </div>
+{% endblock %}
+<!-- CONTENIDO -->
