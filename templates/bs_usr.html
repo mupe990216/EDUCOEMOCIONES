@@ -27,7 +27,7 @@
 
     {%block cabecera%}{%endblock%}
      <!-- Sweet Alert JS -->
-    <script src="{{ url_for('static',filename='js/sweetalert.min1.js') }}"></script>retroceso
+    <script src="{{ url_for('static',filename='js/sweetalert.min1.js') }}"></script>
     
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -90,7 +90,7 @@
 
                     <li>
                         <a href="#" class="NavLateral-DropDown  waves-effect waves-light"><i class="zmdi zmdi-star-circle zmdi-hc-fw"></i> <i class="zmdi zmdi-chevron-down NavLateral-CaretDown"></i> Me controlo </a>
-                        <ul class="full-width">                            
+                        <ul class="full-width">
                         
                             <li>
                                 <a href="/mod2/sesion1/subm1" class="waves-effect waves-light"><i class="zmdi zmdi-male"></i> Tengo autocontrol</a>
@@ -141,8 +141,13 @@
 
                 <li class="btn-MobileMenu ShowHideMenu"><a href="#" class="tooltipped waves-effect waves-light" data-position="bottom" data-delay="50" data-tooltip="Menu"><i class="zmdi zmdi-menu"></i></a></li>
 
-                <a href="#" class="hola">
-                <li style="margin-top: 10px; margin-right: 10px;"><figure><img src="{{ url_for('static',filename='img/usr1.png') }}" alt="UserImage"></figure></li>
+                <a href="#" class="hola">                
+                {%if gen == "Femenino"%}
+                <li style="margin-top: 10px; margin-right: 10px;"><figure><img src="{{ url_for('static',filename='img/01Fem.png') }}" alt="UserImage"></figure></li>
+                {%endif%}
+                {%if gen == "Masculino"%}
+                <li style="margin-top: 10px; margin-right: 10px;"><figure><img src="{{ url_for('static',filename='img/02Mas.png') }}" alt="UserImage"></figure></li>
+                {%endif%}
                 <li class="hola" style="padding:0 5px; margin-top: 10px;">{{nombre}}</li>
             	</a>             
 

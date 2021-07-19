@@ -1,15 +1,90 @@
 {% extends "bs_ind.html" %}
+
+{%block cabecera%}
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/sweetalert1.css') }}">
+	<script src="{{ url_for('static',filename='js/sweetalert.min1.js') }}"></script>
+    <script type="text/javascript">    	
+        function registrar(form){        	
+        	$("form").submit(function(e){        		
+	    		e.preventDefault();	    		
+	    		$.ajax({
+	    			url: '/',
+		            type: 'POST',
+		            data: {
+		                nom: (form.Nombre.value).trim(),
+		                eda: form.Edad.value,
+		                gen: form.Genero.value,
+		                gra: form.Grado.value
+		            },
+		            cache:false,
+		            success: function(response){
+		            	if(response=="Infante registrado" || response=="Infante existente"){
+		            		swal({
+			                    title: "¡Bienvenid@! :)",
+			                    text: response,
+			                    type: "success"
+			                    },
+			                    function(){
+			                        setTimeout(function(){location.href = "/index_usr";},350);//Esperamos 0.35s para recargar la pagina
+			                    }
+			                );
+		            	}
+		            }
+	    		});
+    		});
+        }
+
+        function login(form){
+        	$("form").submit(function(e){        		
+	    		e.preventDefault();	    		
+	    		$.ajax({
+	    			url: '/login',
+		            type: 'POST',
+		            data: {		                
+		                usr: form.Nombre.value,
+		                psw: form.Contra.value
+		            },
+		            cache:false,
+		            success: function(response){
+		            	if(response=="Bienvenida :)"){
+		            		swal({
+			                    title: response,
+			                    text: "Ingreso concedido",
+			                    type: "success"
+			                    },
+			                    function(){
+			                        setTimeout(function(){location.href = "/";},350);//Esperamos 0.35s para recargar la pagina
+			                    }
+			                );
+		            	}else{
+		            		swal({
+			                    title: response,
+			                    text: "Credenciales incorrectas",
+			                    type: "error"
+			                    },
+			                    function(){
+			                        setTimeout(function(){location.href = "/login";},350);//Esperamos 0.35s para recargar la pagina
+			                    }
+			                );
+		            	}
+		            }
+	    		});
+    		});
+        }
+    </script>
+{%endblock%}
+
 {% block contenido %}	
 		<!-- Empieza SeccionLogin -->
 	{% if seleccion == 0 %}	
 		<div class="section seccion login">
 			<div style="margin-top: 2%;">
-				<form method ="POST" action="/index_usr">
-			            <h2> Ingrese sus datos </h2>
+				<form>
+			            <h2 style="font-size: 45px;"> Ingresa tus datos </h2>
 			            <div class="row">
 							<div class="input-field col s11 blue-text">
 							  	<i class="material-icons prefix">account_circle</i>
-							  	<input id="Nombre" name="Nombre" type="text" class="validate" length="64" maxlength="64" required >
+							  	<input id="Nombre" name="Nombre" type="text" class="validate" length="32" maxlength="32" required >
 							  	<label for="Nombre"> Nombre </label>
 							</div>
 						</div>
@@ -23,10 +98,10 @@
 						<div class="row">
 							<div class="input-field col s11 blue-text">
 								<i class="material-icons prefix">people_outline</i>
-	                            <select class="icons" required>
+	                            <select class="icons" id="Genero" name="Genero" required>
 	                                <option value="-1" disabled selected>Selecciona una opción</option>
-	                                <option value="1" class="circle">Femenino</option>
-	                                <option value="2" class="circle">Masculino</option>	                                
+	                                <option value="Femenino" class="circle">Femenino</option>
+	                                <option value="Masculino" class="circle">Masculino</option>	                                
 	                            </select>
 	                            <label>Género</label>
                         	</div>
@@ -34,18 +109,18 @@
 						<div class="row">
 							<div class="input-field col s11 s11 blue-text">
 								<i class="material-icons prefix">access_time</i>
-	                            <select class="icons" required>
+	                            <select class="icons" id="Grado" name="Grado" required>
 	                                <option value="-1" disabled selected>Selecciona una opción</option>
-	                                <option value="1" class="circle">4to de primaria</option>
-	                                <option value="1" class="circle">5to de primaria</option>
-	                                <option value="2" class="circle">6to de primaria</option>	                                
+	                                <option value="4to de primaria" class="circle">4to de primaria</option>
+	                                <option value="5to de primaria" class="circle">5to de primaria</option>
+	                                <option value="6to de primaria" class="circle">6to de primaria</option>	                                
 	                            </select>
 	                            <label>Grado</label>
                         	</div>
 						</div>
 						
 						<div class="col s12  center"> 
-							<button class="btn-large pink darken-4 waves-effect waves-light" type="submit" id="enviar" name="enviar" value="Ingresar" >Acceder <i class="material-icons right">vpn_key</i></button>
+							<button class="btn-large pink darken-4 waves-effect waves-light" id="enviar" name="enviarB" value="Ingresar" onclick="registrar(this.form);">Acceder <i class="material-icons right">vpn_key</i></button>
 						</div>					
 	            </form>
             </div>
@@ -61,7 +136,7 @@
 							<div class="input-field col s11 blue-text">
 							  	<i class="material-icons prefix">account_circle</i>
 							  	<input id="Nombre" name="Nombre" type="text" class="validate" length="64" maxlength="64" required >
-							  	<label for="Nombre"> Nombre </label>
+							  	<label for="Nombre"> Usuario </label>
 							</div>
 						</div>
 						<div class="row">
@@ -72,7 +147,7 @@
 							</div>
 						</div>						
 						<div class="col s12  center"> 
-							<button class="btn-large pink darken-4 waves-effect waves-light" type="submit" id="enviar" name="enviar" value="Ingresar" >Acceder <i class="material-icons right">vpn_key</i></button>
+							<button class="btn-large pink darken-4 waves-effect waves-light" type="submit" id="enviar" name="enviar" value="Ingresar" onclick="login(this.form);" >Acceder <i class="material-icons right">vpn_key</i></button>
 						</div>					
 	            </form>
             </div>

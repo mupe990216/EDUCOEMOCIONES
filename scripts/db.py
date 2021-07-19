@@ -10,86 +10,95 @@ def crea_tbs(conexion):
 	cursor_tb = conexion.cursor()
 	cursor_tb.execute(
 			"""
-				create table if not exists credenciales(
-					usr text not null primary key,
-					psw text not null
+				create table if not exists administrador(
+					usuario text not null primary key,
+					contrasenia text not null
 				)				
 			"""
 		)
 	cursor_tb.execute(
 			"""
-				create table if not exists tipoUsr(
-					idTipoUsr integer not null primary key,
-					descrip text not null
+				create table if not exists infante(
+					nombre text not null primary key,
+					edad text not null,
+					genero text not null,
+					grado text not null
+				)				
+			"""
+		)
+	cursor_tb.execute(
+			"""
+				create table if not exists preguntas(
+					nombre_infante text not null,
+					modulo text not null,
+					sesion text not null,
+					submod text not null,
+					numPre text not null,
+					valor text not null,
+					fecha timestamp default current_timestamp,
+					foreign key(nombre_infante) references infante(nombre),
+					primary key (nombre_infante,modulo,sesion,submod,numPre)
 				)
 			"""
 		)
-	# Ingresamos los tipos de usuario que tendra el sistema
-	llena_cats(conexion,"tipoUsr","idTipoUsr","1",[1,'Administrador'],'idTipoUsr,descrip')
-	llena_cats(conexion,"tipoUsr","idTipoUsr","2",[2,'Cliente'],'idTipoUsr,descrip')
+	cursor_tb.execute(
+			"""
+				create table if not exists ses_intervencion(
+					nombre_infante text not null,
+					modulo text not null,
+					sesion text not null,
+					submod text not null,
+					numPre text not null,
+					valor text not null,
+					fecha timestamp default current_timestamp,
+					foreign key(nombre_infante) references infante(nombre),
+					primary key (nombre_infante,modulo,sesion,submod,numPre)
+				)
+			"""
+		)
 
-def valida_login(conexion,usr,psw,opc):
+def valida_login(conexion,list_data):
 	cursor_tb = conexion.cursor()
-	if(opc==1):
-		sentencia = "select * from credenciales where usr=? and psw=?"
-		respuesta = cursor_tb.execute(sentencia,(usr,psw))
-	if(opc==2):
-		sentencia = "select * from credenciales where usr=?"
-		respuesta = cursor_tb.execute(sentencia,(usr,))
+	sentencia = "select * from administrador where usuario=? and contrasenia=?"
+	respuesta = cursor_tb.execute(sentencia,list_data)
 	existencia = respuesta.fetchone()
-	if existencia != None:				
-		sentencia = "select idTipoUsr from persona where usr=?"
-		respuesta = cursor_tb.execute(sentencia,(usr,))
-		if(respuesta.fetchone()[0]==1):
-			return "Administrador"
-		else:
-			return "Cliente"
+	if existencia!=None:
+		msj = "Bienvenida :)"
 	else:
-		return "Invalido"
-
-
-def alta_usur(conexion,email,usr,psw,nom,apep,apem,sexo,tipo):
-	msj = ""
-	credenciales = valida_login(conexion,usr,psw,2)
-	if(credenciales=="Invalido"):
-		correo = valida_email(conexion,email)
-		if(correo==0):
-			cursor_tb = conexion.cursor()
-			sentencia = "insert into credenciales values(?,?)"
-			respuesta = cursor_tb.execute(sentencia,(usr,psw))
-			sentencia = "insert into persona values(?,?,?,?,?,?,?)"
-			respuesta = cursor_tb.execute(sentencia,(email,usr,nom,apep,apem,sexo,tipo))
-			conexion.commit()
-			if(tipo==1):
-				msj = "Administrador registrado"
-			elif(tipo==2):
-				msj = "Cliente registrado"
-		elif(correo==1):
-			msj = "Existe una persona con ese correo"
-	elif(credenciales=="Administrador"):
-		msj = "Existe un administrador con ese usuario"
-	elif(credenciales=="Cliente"):
-		msj = "Existe un cliente con ese usuario"	
-
+		msj = "Invalido"
 	return msj
 
-def consulta_usur(conexion,tipo):
+def valida_infa(conexion,nom):
 	cursor_tb = conexion.cursor()
-	if(tipo==1):
-		sentencia = "select * from persona where idTipoUsr=1"
-	elif(tipo==2):
-		sentencia = "select * from persona where idTipoUsr=2"
-	return cursor_tb.execute(sentencia)
+	sentencia = "select * from infante where nombre=?"
+	respuesta = cursor_tb.execute(sentencia,(nom,))
+	existencia = respuesta.fetchone()
+	if existencia!=None:
+		existe = 1		
+	else:
+		existe = 0
+	return existe
 
-
-def consulta_usur_esp(conexion,usr):
+def inserta_Infante(conexion,list_data):
 	cursor_tb = conexion.cursor()
-	sentencia = "select * from persona where usr=?"
-	return cursor_tb.execute(sentencia,(usr,))
+	valida = valida_infa(conexion,list_data[0])
+	if valida == 0:
+		sentencia = "insert into infante(nombre,edad,genero,grado) values(?,?,?,?)"
+		cursor_tb.execute(sentencia,list_data)
+		conexion.commit()
+		return "Infante registrado"
+	else:
+		return "Infante existente"
 
-
-
-
+def inserta_pregunta(conexion,list_data):
+	try:
+		cursor_tb = conexion.cursor()
+		sentencia = "insert into preguntas(nombre_infante,modulo,sesion,submod,numPre,valor) values(?,?,?,?,?,?)"
+		cursor_tb.execute(sentencia,list_data)
+		conexion.commit()
+		print("Pregunta Registrada")
+	except Exception as e:
+		print("Pregunta Previamente Insertada: \n {}".format(e))
 
 
 

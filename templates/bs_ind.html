@@ -4,13 +4,13 @@
 	<meta charset="utf-8">
 	<title>.: EDUCOEMOCIONES :.</title>
 	<link rel="shortcut icon" href="{{ url_for('static',filename='img/lv.ico') }}" type="image/x-icon">
-	<link rel="icon" href="{{ url_for('static',filename='img/lv.ico') }}" type="image/x-icon">
+	<link rel="icon" href="{{ url_for('static',filename='img/lv.ico') }}" type="image/x-icon">	
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/materialize.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/estilos.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/login.css') }}">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
-	<script src="{{ url_for('static',filename='js/materialize.min.js') }}"></script>	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/login.css') }}">	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	    
+	<script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>	
+	<script src="{{ url_for('static',filename='js/materialize.min.js') }}"></script>
 	<script>
 		$(document).ready(function() {
     		$(".button-collapse").sideNav(); //Menu del Header
@@ -49,7 +49,7 @@
 			$('.materialboxed').materialbox();//Efecto zoom de imagenes
   		});
 	</script>
-
+	{%block cabecera%}{%endblock%}
 </head>
 
 <body oncopy="return false" oncut="return false" onpaste="return false" oncontextmenu="return false" onkeydown="return true" ondragstart='return false' onselectstart="return false">
@@ -138,8 +138,7 @@
 		    	<div class="row">
 		        	<div class="col s6">
 		        		<ul class="collection">
-						    <li class="collection-item avatar grey lighten-2">
-						      	<img src="img/sigesa/logo1.png" alt="Logo Valle" class="circle">
+						    <li class="collection-item avatar grey lighten-2">						      	
 						      	<span class="title"><h4>EDUCOEMOCIONES</h4></span>
 						      	<p>
 							    	E-mail: <br>

@@ -167,6 +167,9 @@ function enviaForm(form,opc,m,s,sb){
             url: '/SaveTest',
             type: 'POST',
             data: {
+                modulo: m,
+                sesion: s,
+                submod: sb,
                 'arreglo': JSON.stringify(datos) //stringify codifica un arreglo en formato texto jason
             },
             cache:false,
@@ -224,7 +227,6 @@ function enviaForm(form,opc,m,s,sb){
                         }
                     }
 
-
                 }
                 swal({
                     title: "¡Muy Bien! :)",
@@ -239,5 +241,5 @@ function enviaForm(form,opc,m,s,sb){
         });
     }
 
-    });    
+    });
 }
