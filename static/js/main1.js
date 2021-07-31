@@ -176,18 +176,37 @@ function enviaForm(form,opc,m,s,sb){
             success: function(response){
                 let msj = "";
                 let ruta = "";
+                let tipo = "";
+                let resp = "";
                 if(response=="comic"){
-                    msj = "Veamos otra historieta";                    
+                    msj = "Veamos otra historieta";
                     ruta = "/mod"+m+"/sesion"+s+"/subm"+sb+"/retro";
+                    tipo = "warning";
+                    resp = "¡Lee cuidadosamente!";
                 }
                 else{
 
-                    msj = "Pasemos a otro tema";                    
+                    msj = "Vayamos a otro tema";
+                    tipo = "success";
+                    resp = "¡Muy Bien! :)";
                     if(m==1 && s==1){
                         if(sb>=1 && sb <=4){
                             ruta = "/mod"+m+"/sesion"+s+"/subm"+(++sb);
                         }else{
-                            ruta = "/mod1/sesion2/subm1";
+                            msj = "Ya terminaste el trabajo de hoy, ¡Bien hecho!";
+                            $.ajax({
+                                url: '/modControl',
+                                type: 'POST',
+                                data: {
+                                    mod: 1
+                                },
+                                cache:false,
+                                success: function(response){
+                                    console.log(response);
+                                    ruta = "/gracias";
+                                    // ruta = "/mod1";
+                                }
+                            });
                         }
                     }
 
@@ -195,7 +214,20 @@ function enviaForm(form,opc,m,s,sb){
                         if(sb>=1 && sb <=6){
                             ruta = "/mod"+m+"/sesion"+s+"/subm"+(++sb); //Validar el caso 1,2,7 == del comic mandar a la parte de else de este if
                         }else{
-                            ruta = "/mod1/sesion1/s-preguntas"; // -> de aqui nos vamos a "/mod1/sesion2/s-video"
+                            msj = "Ya terminaste el trabajo de hoy, ¡Bien hecho!";
+                            $.ajax({
+                                url: '/modControl',
+                                type: 'POST',
+                                data: {
+                                    mod: 1
+                                },
+                                cache:false,
+                                success: function(response){
+                                    console.log(response);
+                                    ruta = "/gracias";
+                                    // ruta = "/mod1";
+                                }
+                            });
                         }
                     }
 
@@ -203,7 +235,9 @@ function enviaForm(form,opc,m,s,sb){
                         if(sb>=1 && sb <=3){
                             ruta = "/mod"+m+"/sesion"+s+"/subm"+(++sb);
                         }else{
-                            ruta = "/mod2/sesion2/subm1";
+                            // ruta = "/mod2/sesion2/subm1";
+                            ruta = "/gracias";
+                            msj = "Ya terminaste el trabajo de hoy, ¡Bien hecho!";
                         }
                     }
 
@@ -211,27 +245,33 @@ function enviaForm(form,opc,m,s,sb){
                         if(sb==1){
                             ruta = "/mod"+m+"/sesion"+s+"/subm"+(++sb);
                         }else if(sb==2){
-                            ruta = "/mod1/sesion2/s-preguntas"; // -> de aqui nos vamos a "/mod2/sesion1/s-video"   -> de aqui nos vamos a "/mod2/sesion2/s-preguntas"
+                            // ruta = "/mod1/sesion3/s-preguntas"; // -> de aqui nos vamos a "/mod2/sesion1/s-video"   -> de aqui nos vamos a "/mod2/sesion2/s-preguntas"
+                            ruta = "/gracias";
+                            msj = "Ya terminaste el trabajo de hoy, ¡Bien hecho!";
                         }
                     }
 
                     if(m==3 && s==1){
                         if(sb==1){
-                            ruta = "/mod3/sesion2/subm1";
+                            // ruta = "/mod3/sesion1/subm2";
+                            ruta = "/gracias";
+                            msj = "Ya terminaste el trabajo de hoy, ¡Bien hecho!";
                         }
                     }
 
                     if(m==3 && s==2){
                         if(sb==1){
+                            // ruta = "/mod3/sesion2/subm2";
                             ruta = "/gracias";
+                            msj = "Ya terminaste el trabajo de hoy, ¡Bien hecho!";
                         }
                     }
 
                 }
                 swal({
-                    title: "¡Muy Bien! :)",
+                    title: resp,
                     text: msj,
-                    type: "success"
+                    type: tipo
                     },
                     function(){
                         setTimeout(function(){location.href = ruta;},350);//Esperamos 0.35s para recargar la pagina
@@ -243,3 +283,112 @@ function enviaForm(form,opc,m,s,sb){
 
     });
 }
+
+
+function modControl(modulo,sesion){
+    $.ajax({
+        url: '/modControl',
+        type: 'POST',
+        data: {
+            mod: modulo
+        },
+        cache:false,
+        success: function(response){
+            swal({
+                title: "¡Muy Bien! :)",
+                text: "Continuemos",
+                type: "success"
+            },
+            function(){
+                // ruta = "/mod3";
+                ruta = "/gracias";
+                /*if(modulo==2 && sesion==1){
+                    ruta = "/mod1";
+                }
+                if(modulo==2 && sesion==2){
+                    
+                }
+                if(modulo==3 && sesion==1){
+                    
+                }
+                if(modulo==3 && sesion==2){
+                    
+                }*/
+                setTimeout(function(){location.href = ruta;},350);//Esperamos 0.35s para recargar la pagina
+                }
+            );
+        }
+    });
+}
+
+function mandarSesionesIntervencion(m,s,sb){
+    let bandera = 0;
+    let arreglo = [];
+    let datos = document.querySelectorAll(".Preguntas");
+    datos.forEach(e => arreglo.push(e.value));
+    for(let i = 0; i<arreglo.length; i++){
+        console.log("Arreglo: "+i+" Valor: "+arreglo[i]);
+        if(arreglo[i] === ""){
+            bandera = 1;
+            swal("Te faltó contestar una pregunta","Lee cuidadosamente :(","warning");
+            break;
+        }
+    }
+    if(bandera==0){
+        $.ajax({
+            url: '/SaveInter',
+            type: 'POST',
+            data: {
+                modulo: m,
+                sesion: s,
+                submod: sb,
+                'arreglo': JSON.stringify(arreglo) //stringify codifica un arreglo en formato texto jason
+            },
+            cache:false,
+            success: function(response){
+                ruta = "/gracias";
+                msj = "Es todo por el día de hoy"
+                // if((m==1) && (s==1)){
+                //     ruta = "/mod1/sesion2/s-preguntas";
+                //     msj = "Continuemos";
+                // }
+                // if((m==1) && (s==2)){
+                //     ruta = "/gracias";
+                //     msj = "Es todo por el día de hoy"
+                // }
+                // if((m==2) && (s==1)){
+                //     ruta = "/gracias";
+                //     msj = "Es todo por el día de hoy"
+                // }
+                // if((m==1) && (s==3)){
+                //     ruta = "/gracias";
+                //     msj = "Es todo por el día de hoy"
+                // }
+                // // if((m==2) && (s==1)){
+                // //     ruta = "/mod2/sesion2/s-preguntas";
+                // //     msj = "Continuemos";
+                // // }
+                // if((m==2) && (s==2)){
+                //     ruta = "/gracias";
+                //     msj = "Es todo por el día de hoy";
+                // }
+                // if((m==3) && (s==1)){
+                //     ruta = "/gracias";
+                //     msj = "Es todo por el día de hoy";
+                // }  
+                swal({
+                        title: "¡Muy Bien! :)",
+                        text: msj,
+                        type: "success"
+                    },
+                    function(){                        
+                        setTimeout(function(){location.href = ruta;},350);//Esperamos 0.35s para recargar la pagina
+                    }
+                );
+            }
+        });
+    }    
+}
+
+
+

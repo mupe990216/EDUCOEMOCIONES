@@ -1,0 +1,253 @@
+{% extends "bs_usr.html" %}
+
+<!-- CONTENIDO -->
+{% block contenido %}
+    <h3 style="text-align: center;">Ahora practicamos</h3>
+    <div class="row center-align" style="background-color: rgba(250, 250, 200,0.5); margin:40px; padding: 10px;">            
+        <article class="col s12" style="margin-top: 15px;">
+    
+    {% if modulo == 1 and sesion == 1 %}
+        <form action="#" method="GET">
+            <div class="row extra-fondo-row">
+                <div class="col m12 l6">
+                    <h5>¿Describe qué emoción esta presentando Alberto?</h5>
+                    <img class="imagen-intervencion" src="{{ url_for('static',filename='img/M1/S1/Int-P1.png')}}" alt="">
+                </div>
+                <div class="col m12 l6">
+                    <div class="input-field col s12 efecto-pulse-no">
+                        <textarea id="preg1" class="materialize-textarea Preguntas"></textarea>                        
+                        <label for="preg1">Escribe tu respuesta</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row extra-fondo-row">
+                <div class="col m12 l6">
+                    <h5>¿Cómo te sientes de pasar un año en casa y sin asistir a la escuela?</h5>
+                    <!-- <img class="imagen-intervencion" src="{{ url_for('static',filename='img/M1/S1/Int-P1.png')}}" alt=""> -->
+                </div>
+                <div class="col m12 l6">                        
+                    <div class="input-field col s12 efecto-pulse-no">
+                        <textarea id="preg2" class="materialize-textarea Preguntas"></textarea>
+                        <label for="preg2">Escribe tu respuesta</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row extra-fondo-row">
+                <div class="col m12 l6">
+                    <h5>¿Cómo crees que se sienten tus papás debido a la pandemia?</h5>
+                    <!-- <img class="imagen-intervencion" src="{{ url_for('static',filename='img/M1/S1/Int-P1.png')}}" alt=""> -->
+                </div>
+                <div class="col m12 l6">                        
+                    <div class="input-field col s12 efecto-pulse-no">
+                        <textarea id="preg3" class="materialize-textarea Preguntas"></textarea>
+                        <label for="preg3">Escribe tu respuesta</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button class="btn-large waves-effect indigo" onclick="mandarSesionesIntervencion(1,1,1);">Enviar respuestas</button><br>
+        <!-- mandarSesionesIntervencion(modulo,sesion,submodulo) -->
+    {% endif %}
+
+    {% if modulo == 1 and sesion == 2 %}
+        <form action="#" method="GET">
+            <div class="row extra-fondo-row">
+                <div class="col m12 l6">
+                    <h5>¿Cuándo la profesora te dice que tienes que explicar el tema ante todos tus compañeros ¿Qué pensamiento pasa por tu mente?</h5>
+                    <img class="imagen-intervencion" src="{{ url_for('static',filename='img/M1/S2/Inter-T2-01.png')}}" alt="">
+                </div>
+                <div class="col m12 l6">
+                    <div class="input-field col s12 efecto-pulse-no">
+                        <textarea id="preg1" class="materialize-textarea Preguntas"></textarea>                        
+                        <label for="preg1">Escribe tu respuesta</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row extra-fondo-row">
+                <div class="col m12 l6">
+                    <h5>¿Qué pensamiento viene a tu mente cuando te hablan acerca de la pandemia?</h5>
+                    <img class="imagen-intervencion" src="{{ url_for('static',filename='img/M1/S2/Inter-T2-02.png')}}" alt="">
+                </div>
+                <div class="col m12 l6">                        
+                    <div class="input-field col s12 efecto-pulse-no">
+                        <textarea id="preg2" class="materialize-textarea Preguntas"></textarea>
+                        <label for="preg2">Escribe tu respuesta</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button class="btn-large waves-effect indigo" onclick="mandarSesionesIntervencion(1,2,1);">Enviar respuestas</button><br>
+        <!-- mandarSesionesIntervencion(modulo,sesion,submodulo) -->
+    {% endif %}
+
+    {% if modulo == 1 and sesion == 3 %}
+        <form action="#" method="GET">
+            <h5 style="color: red;">Mira los videos y contesta las preguntas</h5><br>
+            <div class="row extra-fondo-row">
+                <div class="col m12 l6">
+                    <h5>¿Menciona que cambios expresa el muchacho al pararse de la banca?</h5>
+                    <iframe width="500" height="285" src="https://www.youtube.com/embed/Pzfae6kKW2I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col m12 l6">
+                    <div class="input-field col s12 efecto-pulse-no">
+                        <textarea id="preg1" class="materialize-textarea Preguntas"></textarea>                        
+                        <label for="preg1">Escribe tu respuesta</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row extra-fondo-row">
+                <div class="col m12 l6">
+                    <h5>¿Qué características se pueden observar que muestra la joven cuando esta sentada en la mesa?</h5>
+                    <iframe width="500" height="285" src="https://www.youtube.com/embed/P7rTjTtOAyU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col m12 l6">                        
+                    <div class="input-field col s12 efecto-pulse-no">
+                        <textarea id="preg2" class="materialize-textarea Preguntas"></textarea>
+                        <label for="preg2">Escribe tu respuesta</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row extra-fondo-row">
+                <div class="col m12 l6">
+                    <h5>¿Qué pensamientos consideras que pasaba por la mente de los jóvenes al estar enviando mensajes?</h5>
+                    <iframe width="500" height="285" src="https://www.youtube.com/embed/YBlAdILyZDg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col m12 l6">                        
+                    <div class="input-field col s12 efecto-pulse-no">
+                        <textarea id="preg3" class="materialize-textarea Preguntas"></textarea>
+                        <label for="preg3">Escribe tu respuesta</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row extra-fondo-row">
+                <div class="col m12 l6">
+                    <h5>¿Con el actuar de los jóvenes, que emoción crees que están sintiendo, detállanos por qué mencionas que es esa emoción?</h5>
+                </div>
+                <div class="col m12 l6">                        
+                    <div class="input-field col s12 efecto-pulse-no">
+                        <textarea id="preg4" class="materialize-textarea Preguntas"></textarea>
+                        <label for="preg4">Escribe tu respuesta</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button class="btn-large waves-effect indigo" onclick="mandarSesionesIntervencion(1,3,1);">Enviar respuestas</button><br>
+        <!-- mandarSesionesIntervencion(modulo,sesion,submodulo) -->
+    {% endif %}
+
+    {% if modulo == 2 and sesion == 1 %}
+        <form action="#" method="GET">
+            <h5 style="color: red;">Mira los videos y contesta las preguntas</h5><br>
+            <div class="row extra-fondo-row">
+                <div class="col m12 l6">
+                    <h5>¿Menciona todos los cambios que observas en la niña del traje verde?</h5>
+                    <iframe width="500" height="285" src="https://www.youtube.com/embed/1QndSmx7JPo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col m12 l6">
+                    <div class="input-field col s12 efecto-pulse-no">
+                        <textarea id="preg1" class="materialize-textarea Preguntas"></textarea>                        
+                        <label for="preg1">Escribe tu respuesta</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row extra-fondo-row">
+                <div class="col m12 l6">
+                    <h5>¿Menciona que pensamientos, tendrá cada una de las niñas?</h5>
+                    <iframe width="500" height="285" src="https://www.youtube.com/embed/B4ZAamwzIqg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col m12 l6">                        
+                    <div class="input-field col s12 efecto-pulse-no">
+                        <textarea id="preg2" class="materialize-textarea Preguntas"></textarea>
+                        <label for="preg2">Escribe tu respuesta</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row extra-fondo-row">
+                <div class="col m12 l6">
+                    <h5>¿Con el actuar de las niñas, que emoción crees que están sintiendo, detállanos por qué mencionas que es esa emoción?</h5>                    
+                </div>
+                <div class="col m12 l6">                        
+                    <div class="input-field col s12 efecto-pulse-no">
+                        <textarea id="preg3" class="materialize-textarea Preguntas"></textarea>
+                        <label for="preg3">Escribe tu respuesta</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button class="btn-large waves-effect indigo" onclick="mandarSesionesIntervencion(2,1,1);">Enviar respuestas</button><br>
+        <!-- mandarSesionesIntervencion(modulo,sesion,submodulo) -->
+    {% endif %}
+
+    {% if modulo == 2 and sesion == 2 %}
+        <form action="#" method="GET">
+            <div class="row extra-fondo-row">
+                <div class="col m12 l6">
+                    <h5>María no tolera tener clases en línea. ¿Cuéntanos cómo te va a ti?</h5>
+                    <!-- <img class="imagen-intervencion" src="{{ url_for('static',filename='img/M1/S2/Inter-T2-01.png')}}" alt=""> -->
+                </div>
+                <div class="col m12 l6">
+                    <div class="input-field col s12 efecto-pulse-no">
+                        <textarea id="preg1" class="materialize-textarea Preguntas"></textarea>                        
+                        <label for="preg1">Escribe tu respuesta</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row extra-fondo-row">
+                <div class="col m12 l6">
+                    <h5>Si tus papás te quitan el celular por no hacer la tarea. ¿Cómo actuarías?</h5>
+                    <!-- <img class="imagen-intervencion" src="{{ url_for('static',filename='img/M1/S2/Inter-T2-02.png')}}" alt=""> -->
+                </div>
+                <div class="col m12 l6">                        
+                    <div class="input-field col s12 efecto-pulse-no">
+                        <textarea id="preg2" class="materialize-textarea Preguntas"></textarea>
+                        <label for="preg2">Escribe tu respuesta</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button class="btn-large waves-effect indigo" onclick="mandarSesionesIntervencion(2,2,1);">Enviar respuestas</button><br>
+        <!-- mandarSesionesIntervencion(modulo,sesion,submodulo) -->
+    {% endif %}
+
+    {% if modulo == 3 and sesion == 1 %}
+        <form action="#" method="GET">
+            <div class="row extra-fondo-row">
+                <div class="col m12 l6">
+                    <h5>¿Cuando te sientes tenso qué es lo que haces?</h5>
+                    <!-- <img class="imagen-intervencion" src="{{ url_for('static',filename='img/M1/S2/Inter-T2-01.png')}}" alt=""> -->
+                </div>
+                <div class="col m12 l6">
+                    <div class="input-field col s12 efecto-pulse-no">
+                        <textarea id="preg1" class="materialize-textarea Preguntas"></textarea>                        
+                        <label for="preg1">Escribe tu respuesta</label>
+                    </div>
+                </div>
+            </div>            
+        </form>
+        <button class="btn-large waves-effect indigo" onclick="mandarSesionesIntervencion(3,1,1);">Enviar respuestas</button><br>
+        <!-- mandarSesionesIntervencion(modulo,sesion,submodulo) -->
+    {% endif %}
+
+    {% if modulo == 3 and sesion == 2 %}
+        <form action="#" method="GET">
+            <div class="row extra-fondo-row">
+                <div class="col m12 l6">
+                    <h5>Cuentamos, ¿Que te parecio usar esta página web por varios días?</h5>
+                    <!-- <img class="imagen-intervencion" src="{{ url_for('static',filename='img/M1/S2/Inter-T2-01.png')}}" alt=""> -->
+                </div>
+                <div class="col m12 l6">
+                    <div class="input-field col s12 efecto-pulse-no">
+                        <textarea id="preg1" class="materialize-textarea Preguntas"></textarea>                        
+                        <label for="preg1">Escribe tu respuesta</label>
+                    </div>
+                </div>
+            </div>            
+        </form>
+        <button class="btn-large waves-effect indigo" onclick="mandarSesionesIntervencion(3,2,1);">Enviar respuestas</button><br>
+        <!-- mandarSesionesIntervencion(modulo,sesion,submodulo) -->
+    {% endif %}
+
+        </article><br>
+    </div>
+{% endblock %}
+<!-- CONTENIDO -->

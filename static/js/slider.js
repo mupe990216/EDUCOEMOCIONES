@@ -51,3 +51,8 @@ btnRight.addEventListener('click',function(){
 // setInterval(function(){
 //     next();
 // },2500);
+
+function apareceBoton(){
+	let btnsiguiente = document.querySelector("#btnsiguiente");
+	btnsiguiente.style.display = "block";
+}

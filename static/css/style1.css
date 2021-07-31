@@ -409,6 +409,19 @@ body, html{
     object-fit: cover;
 }
 
+@media (max-width: 650px){
+    video{
+        width: 300px;
+    }
+
+    h2,h3,h4{
+        font-size: 20px;
+    }
+    .slider_img{
+        object-fit: contain;
+    }
+}
+
 .slider_btn{
     position: absolute;    
     width: 45px;
@@ -467,6 +480,12 @@ body, html{
     animation: Efecto-pulso 1.5s infinite;
 }
 
+.efecto-pulse-no{
+    border-radius: 3%;
+    transform: scale(1);
+    animation: Efecto-pulso 1.5s 3;
+}
+
 .efecto-pulse:hover{
     /*animation: none;*/
     transition: .3s ease-in-out;
@@ -497,6 +516,7 @@ body, html{
 }
 
 .Preguntas{
+    /*max-width: 250px;*/
     border-radius: 25px;
     transition: .5s ease-in-out;
     cursor: pointer;
@@ -524,7 +544,25 @@ body, html{
   }
 }
 
+textarea:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+}
 
+textarea:focus{
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.imagen-intervencion{
+    max-width: 130px;
+}
+
+.extra-fondo-row{
+    background-color: rgba(0, 0, 0, 0.04);
+    padding: 15px;
+}
 
 /* ----------------------------------------------------------------  */
 
